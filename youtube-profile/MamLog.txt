@@ -1,0 +1,30 @@
+[2026-06-16T15:19:10.674Z] [INFO] ========================================================================================================================
+[2026-06-16T15:19:10.674Z] [INFO] Initializing MAM Client.
+App: com.microsoft.edge 149.0.4022.69
+SDK: 2.1.367.0
+OS: windows 10.0.19045.6456
+DeviceType: Desktop
+Manufacturer: Micro-Star International Co., Ltd.
+Model: GP63 Leopard 8RE
+Telemetry: yes
+Managed device support: enabled
+[2026-06-16T15:19:10.677Z] [INFO] Telemetry session 3ad60948-924b-4898-97d5-815dff76fef0.
+[2026-06-16T15:19:10.678Z] [INFO] Initializing cache (v1).
+[2026-06-16T15:19:14.855Z] [INFO] Shutting down.
+[2026-06-16T15:19:14.855Z] [INFO] Stopping the task scheduler and canceling any outstanding work items...
+[2026-06-16T15:19:14.855Z] [INFO] Task scheduler has stopped, and all work has been canceled.
+[2026-06-16T15:20:15.213Z] [INFO] ========================================================================================================================
+[2026-06-16T15:20:15.214Z] [INFO] Initializing MAM Client.
+App: com.microsoft.edge 149.0.4022.69
+SDK: 2.1.367.0
+OS: windows 10.0.19045.6456
+DeviceType: Desktop
+Manufacturer: Micro-Star International Co., Ltd.
+Model: GP63 Leopard 8RE
+Telemetry: yes
+Managed device support: enabled
+[2026-06-16T15:20:15.216Z] [INFO] Telemetry session 21ff37e6-f984-4841-a783-8d517475e701.
+[2026-06-16T15:20:15.217Z] [INFO] Reinitialized cache (v1).
+[2026-06-16T15:20:18.740Z] [INFO] Shutting down.
+[2026-06-16T15:20:18.740Z] [INFO] Stopping the task scheduler and canceling any outstanding work items...
+[2026-06-16T15:20:18.740Z] [INFO] Task scheduler has stopped, and all work has been canceled.

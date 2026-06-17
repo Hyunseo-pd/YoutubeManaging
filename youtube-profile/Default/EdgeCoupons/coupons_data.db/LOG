@@ -1,0 +1,5 @@
+2026/06/17-00:19:14.500 2eac Creating DB C:\Users\김현서\Desktop\코딩\youtube\youtube-profile\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/06/17-00:19:14.517 2eac Reusing MANIFEST C:\Users\김현서\Desktop\코딩\youtube\youtube-profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/06/17-00:19:14.655 408c Level-0 table #5: started
+2026/06/17-00:19:14.666 408c Level-0 table #5: 682673 bytes OK
+2026/06/17-00:19:14.674 408c Delete type=0 #3

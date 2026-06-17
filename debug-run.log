@@ -1,0 +1,12 @@
+[like-videos] start
+[like-videos] loaded videos count: 230
+[like-videos] launched persistent context
+[like-videos] opened new page
+[like-videos] navigated to youtube.com
+[like-videos] opening video: https://www.youtube.com/watch?v=iNKqWaimAc0&list=LL&index=2&t=2s&pp=iAQBsAgC
+[like-videos] video page loaded
+[like-videos] like button count: 8
+[like-videos] like button is visible
+[like-videos] aria-pressed: true
+이미 좋아요 싱테
+[like-videos] done
