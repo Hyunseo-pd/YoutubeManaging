@@ -8,21 +8,26 @@ async function switchChannelIfNeeded(page, channelName) {
   await page.locator("#avatar-btn").click();
   await page.getByText("계정 전환", { exact: true }).click();
 
-  const accounts = page.locator("ytd-account-item-renderer");
-  await accounts.first().waitFor({ state: "visible", timeout: 10000 });
+  //현재 채널 확인
+  const selectedAccount = page.locator(
+    "ytd-account-item-renderer:has(yt-icon#selected:not([hidden]))",
+  );
 
-  const currentChannel = await accounts
-    .filter({ has: page.locator("yt-icon#selected") })
+  await selectedAccount.waitFor({ state: "visible", timeout: 10000 });
+
+  const currentChannel = await selectedAccount
     .locator("#channel-title")
-    .last()
     .textContent();
 
+  console.log("현재 채널:", currentChannel?.trim());
+
+  //채널이 일치하는지 확인
   if (currentChannel.trim() === channelName) {
     console.log("이미 해당 채널:", channelName);
     await page.keyboard.press("Escape");
     return;
   }
-
+  //채널 전환
   await page
     .locator("ytd-account-item-renderer")
     .filter({ has: page.locator("#channel-title", { hasText: channelName }) })
@@ -35,7 +40,7 @@ async function switchChannelIfNeeded(page, channelName) {
 }
 
 (async () => {
-  const videos = JSON.parse(fs.readFileSync("non-music-videos.json", "utf8"));
+  const videos = JSON.parse(fs.readFileSync("non-music-cleaned.json", "utf8"));
   const context = await chromium.launchPersistentContext(
     "C:/youtube-auto-profile",
     {
@@ -49,24 +54,27 @@ async function switchChannelIfNeeded(page, channelName) {
     waitUntil: "domcontentloaded",
   });
   await switchChannelIfNeeded(page, CHANNEL_NAME);
-  const video = videos[0];
+  const selectedvideos = videos.slice(50, 86);
 
-  await page.goto(video.url, {
-    waitUntil: "networkidle",
-    timeout: 60000,
-  });
+  for (const video of selectedvideos) {
+    await page.goto(video.url, {
+      waitUntil: "networkidle",
+      timeout: 60000,
+    });
 
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(2000);
 
-  const likeButton = page.locator('button[aria-label*="좋아요 표시"]').nth(1);
+    const likeButton = page.locator('button[aria-label*="좋아요 표시"]').nth(1);
 
-  const pressed = await likeButton.getAttribute("aria-pressed");
+    const pressed = await likeButton.getAttribute("aria-pressed");
 
-  if (pressed !== "true") {
-    await likeButton.click();
-    console.log("좋아요 표시 완료");
-  } else {
-    console.log(" 이미 좋아요");
+    if (pressed !== "true") {
+      await likeButton.click();
+      await page.waitForTimeout(3000);
+      console.log("좋아요 표시 완료");
+    } else {
+      console.log(" 이미 좋아요");
+    }
   }
 
   await page.waitForTimeout(1000);
